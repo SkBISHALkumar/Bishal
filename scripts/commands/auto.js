@@ -4,7 +4,7 @@ module.exports = {
     version: "0.0.2",
     permission: 0,
     prefix: true,
-    credits: "Fahim",
+    credits: "Nayan",
     description: "auto video download",
     category: "user",
     usages: "",
@@ -19,18 +19,18 @@ handleEvent: async function ({ api, event, args }) {
   const body = content.toLowerCase();
   const {alldown} = require("nayan-media-downloader")
   if (body.startsWith("https://")) {
-  api.setMessageReaction("🔍", event.messageID, (err) => {}, true);
+  api.setMessageReaction("⏰", event.messageID, (err) => {}, true);
 const data = await alldown(content);
   console.log(data)
   const {low, high, title} = data.data;
-    api.setMessageReaction("✔️", event.messageID, (err) => {}, true);
+    api.setMessageReaction("✅", event.messageID, (err) => {}, true);
   const video = (await axios.get(high, {
       responseType: "arraybuffer",
     })).data;
     fs.writeFileSync(__dirname + "/cache/auto.mp4", Buffer.from(video, "utf-8"))
 
         return api.sendMessage({
-            body: `𝐅𝐀𝐇𝐈𝐌 𝐌𝐄𝐃𝐈𝐀 𝐃𝐎𝐖𝐍𝐋𝐎𝐀𝐃 《𝐅𝐀𝐇𝐈𝐌 𝐌𝐄𝐃𝐈𝐀》: ${title}`,
+            body: `𝐀𝐑𝐘𝐀𝐍 𝐌𝐄𝐃𝐈𝐀 𝐃𝐎𝐖𝐍𝐋𝐎𝐀𝐃 《𝐀𝐑𝐘𝐀𝐍》: ${title}`,
             attachment: fs.createReadStream(__dirname + "/cache/auto.mp4")
 
         }, event.threadID, event.messageID);
