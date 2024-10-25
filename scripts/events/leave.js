@@ -13,7 +13,7 @@ module.exports.run = async function({ api, event, Users, Threads }) {
   const { threadID } = event;
   const data = global.data.threadData.get(parseInt(threadID)) || (await Threads.getData(threadID)).data;
   const name = global.data.userName.get(event.logMessageData.leftParticipantFbId) || await Users.getNameUser(event.logMessageData.leftParticipantFbId);
-  const type = (event.author == event.logMessageData.leftParticipantFbId) ? "তোর কতো বড় সাহস আমি আরিয়ান bot থাকতে তুই লিফট নিবি? থাপ্পর চিনো তুই☹️😡 🥱দারা তোরে আবার এট দিবো 🤨" : "বাল পাকনামির কারণে কিক খাইলো🤧";
+  const type = (event.author == event.logMessageData.leftParticipantFbId) ? "পালাইছে রে পালাইছে 😹 পালিয়ে কোথায় যাবি থাপ্পর চিনো তুই☹️😡 🥱দারা তোরে আবার এট দিবো 🤨" : "বাল পাকনামির কারণে কিক খাইলো🤧";
   const path = join(__dirname, "Nayan", "leaveGif");
   const gifPath = join(path, `Messenger_creation_D9B5E5F7-A4E1-4870-A8E2-D500072CFFF6.mp4`);
   let msg, formPush;
